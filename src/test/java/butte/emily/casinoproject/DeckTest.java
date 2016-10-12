@@ -11,19 +11,20 @@ public class DeckTest {
 
     private Deck deck;
     //private Card card;
-    private int[] test = new int[13];
+
 
     @Before
     public void setUp() {
-        deck = new Deck();
+        deck = new Deck(false);
 //        card = new Card();
     }
 
     @Test
     public void cardsLeftTest() {
-
-        int expected = 13;
-        int actual = deck.cardsLeft(test);
+        int expected = 42;
+        int actual = deck.cardsLeft(10);
         Assert.assertEquals(expected, actual);
     }
+
+
 }

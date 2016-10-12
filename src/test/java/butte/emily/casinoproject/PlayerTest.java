@@ -9,41 +9,29 @@ import org.junit.Test;
  */
 public class PlayerTest {
 
-    private Player player;
+    private Player player1;
+    private Player player2;
 
     @Before
     public void setUp() {
-        player = new Player("Billy", 100.00);
+        player1 = new Player("Billy", 100.00);
+        player2 = new Player("Lisa", 20.00);
     }
 
-//    @Test
-//    public void getNameTest() {
-//        String expected = "";
-//        String actual = player.getName();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void setNameTest() {
-//        String expected = "";
-//        String actual = player.setName();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void getBalanceTest() {
-//        double expected = 100.00;
-//        double actual = player.getBalance();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void setBalanceTest() {
-//        double expected = 100.00;
-//        double actual = player.setBalance();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
+    @Test
+    public void getNameTest() {
+        String expected = "Billy";
+        String actual = player1.getName();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getBalanceTest() {
+        int expected = 100;
+        int actual = (int) player1.getBalance();
+        Assert.assertEquals(expected, actual);
+    }
+
 //    @Test
 //    public void getHand() {
 //        Card expected = ;
