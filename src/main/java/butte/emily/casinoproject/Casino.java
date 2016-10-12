@@ -8,7 +8,7 @@ public class Casino {
     PlayerDisplay display = new PlayerDisplay();
 
     public void startCasino() {
-        display.runCasino();
+        display.welcome();
     }
 
 //    public void addPlayer() {
