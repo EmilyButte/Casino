@@ -19,18 +19,31 @@ public class Card {
     private final int value;
     private final int suit;
 
-    public Card(int suit, int value) {
-        this.suit = suit;
-        this.value = value;
-    }
-
-    public int getSuit() {
+    public final int getSuit() {
         return suit;
     }
-
-    public int getValue() {
+    public final int getValue() {
         return value;
     }
+
+    public Card(int value, int suit) {
+        this.value = value;
+        this.suit = suit;
+//        suit = JOKER;
+//        value = 1;
+    }
+
+//    public Card(int theValue, int theSuit) {
+//        if(theSuit != SPADES && theSuit != HEARTS && theSuit != DIAMONDS && theSuit != CLUBS && theSuit != JOKER) {
+//            throw new IllegalArgumentException("Suit not valid.");
+//        }
+//        if(theSuit != JOKER && (theValue < 1|| theValue >13)) {
+//            throw new IllegalArgumentException("Card value is not valid.");
+//        }
+//        value = theValue;
+//        suit = theSuit;
+//    }
+
 
     public String getSuitAsString() {
         switch (suit) {
@@ -81,7 +94,7 @@ public class Card {
             }
         }
     }
-
+    @Override
     public String toString(){
             return getValueAsString() + " of " + getSuitAsString();
     }

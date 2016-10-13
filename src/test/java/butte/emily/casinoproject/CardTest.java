@@ -14,7 +14,7 @@ public class CardTest {
 
     @Before
     public void setUp() {
-        card = new Card(1, 10); //10 of Hearts
+        card = new Card(10, 1); //10 of Hearts
         card2 = new Card(3, 3); //3 of Clubs
     }
 

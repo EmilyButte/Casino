@@ -32,6 +32,11 @@ public class Deck {
             deck[54] = new Card(2, Card.JOKER);
         }
         cardsUsed = 0;
+        System.out.println(deck);
+    }
+
+    public Card[] getDeck() {
+        return deck;
     }
 
     public void shuffle() {
@@ -49,7 +54,7 @@ public class Deck {
         return deck.length - cardsUsed;
     }
 
-    public Card dealCard() {
+    public Card deal() {
         if(cardsUsed == deck.length) {
             throw new IllegalStateException("No cards left");
         }
