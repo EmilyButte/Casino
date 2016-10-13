@@ -9,9 +9,9 @@ public class Hand {
 
     ArrayList<Card> cardList = new ArrayList<>();
 
-    public Hand() {
-        cardList = new ArrayList<Card>();
-    }
+    //public Hand() {
+//        cardList = new ArrayList<Card>();
+//    }
 
     public void clear() {
         cardList.clear();

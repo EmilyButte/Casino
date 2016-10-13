@@ -8,32 +8,18 @@ public class Deck {
     private Card[] deck;
     private int cardsUsed;
     private Card[] hand;
+    private int currentCard;
 
-    //if false, Jokers are included.
-    //public Deck() {
-//        this(false);
-//    }
-
-    public Deck(boolean includeJokers) {
-        if(includeJokers) {
-            deck = new Card[54];
-        } else {
-            deck = new Card[52];
-        }
-
+    public Deck() {
+        deck = new Card[52];
         int cardCount = 0;
-        for(int suit = 0; suit <= 3; suit++) {
-            for(int value = 1; value <= 13; value++) {
+        for (int suit = 0; suit <= 3; suit++) {
+            for (int value = 1; value <= 13; value++) {
                 deck[cardCount] = new Card(value, suit);
                 cardCount++;
             }
+            cardsUsed = 0;
         }
-        if(includeJokers) {
-            deck[53] = new Card(1, Card.JOKER);
-            deck[54] = new Card(2, Card.JOKER);
-        }
-        cardsUsed = 0;
-        System.out.println(deck);
     }
 
     public void shuffle() {
@@ -50,22 +36,13 @@ public class Deck {
         return deck.length - cardsUsed;
     }
 
-    public Card[] deal(int desiredNumCards) {
-        Card[] dealtCards = new Card[desiredNumCards];
-        for(int index = 0; index < desiredNumCards; index ++) {
-            dealtCards[index] = cards[topCard];
-            topCard++;
+    public Card deal() {
+        if(currentCard < deck.length) {
+            cardsUsed++;
+        } else {
+            throw new IllegalStateException("No cards left");
         }
-        return dealtCards;
-//        }
-//        if(cardsUsed == deck.length) {
-//            throw new IllegalStateException("No cards left");
-//        }
-//        //cardsUsed++;
-//        return deck[cardsUsed-1];
-    }
-
-    public boolean hasJokers() {
-        return deck.length == 54;
+        return deck[cardsUsed-1];
     }
 }
+

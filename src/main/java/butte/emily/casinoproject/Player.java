@@ -7,12 +7,11 @@ public class Player {
 
     private String name;
     private double balance;
-    private Card hand;
+
 
     public Player(String name, double balance) {
         this.name = name;
         this.balance = balance;
-        hand = new Card();
     }
 
     public String getName() {
@@ -23,9 +22,7 @@ public class Player {
         return balance;
     }
 
-    public Card getHand() {
-        return hand;
-    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -35,7 +32,5 @@ public class Player {
         this.balance = balance;
     }
 
-    public void setHand(Card hand) {
-        this.hand = hand;
-    }
+
 }

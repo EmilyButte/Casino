@@ -14,11 +14,11 @@ public class DeckTest {
 
     private Deck deck;
     //private Card card;
-    static List<List<Card>> previousDeck = new ArrayList<>();
+    //static List<List<Card>> previousDeck = new ArrayList<>();
 
     @Before
     public void setUp() {
-        deck = new Deck(false);
+        deck = new Deck();
     }
 
 //    @Test //test order of deck 1 and deck2 to make sure they are not the same - check size as well

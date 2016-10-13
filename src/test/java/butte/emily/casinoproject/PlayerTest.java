@@ -9,6 +9,7 @@ import org.junit.Test;
  */
 public class PlayerTest {
 
+    private Player player;
     private Player player1;
     private Player player2;
     private Hand hand;

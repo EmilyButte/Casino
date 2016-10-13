@@ -68,21 +68,21 @@ public class HandTest {
     @Test
     public void getCardTest() {
         String expected = "8 of Diamonds";
-        Card actual = hand.getCard(2);
+        String actual = hand.getCard(2).toString();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sortBySuitTest() {
         String expected = "[Jack of Hearts, 8 of Diamonds, 2 of Clubs]";
-        ArrayList actual = hand.sortBySuit();
+        String actual = hand.sortBySuit().toString();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sortByValueTest() {
         String expected = "[2 of Clubs, 8 of Diamonds, Jack of Hearts]";
-        ArrayList actual = hand.sortByValue();
+        String actual = hand.sortByValue().toString();
         Assert.assertEquals(expected, actual);
     }
 

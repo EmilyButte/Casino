@@ -9,13 +9,26 @@ public class UserInput {
 
     Scanner input = new Scanner(System.in);
 
-    public int getUserInput() {
-        System.out.println("What would you like to play? Enter a number.");
+    public int getUserInfoInt(String message) {
+        System.out.println(message);
         return input.nextInt();
     }
 
-    public double getBet() {
-        System.out.println("How much would you like to bet?");
+    public double getUserInfoDouble(String message) {
+        System.out.println(message);
         return input.nextDouble();
     }
+
+    public String getUserInfoString(String message) {
+        System.out.println(message);
+        return input.next();
+    }
 }
+
+
+//try {
+//            casino.startCasino();
+//        } catch (Exception e) {
+//            System.out.println("Enter a valid option");
+//            casino.startCasino();
+//        }

@@ -9,11 +9,6 @@ public class App {
 
         Casino casino = new Casino();
 
-        try {
-            casino.startCasino();
-        } catch (Exception e) {
-            System.out.println("Enter a valid option");
-            casino.startCasino();
-        }
+        casino.startCasino();
     }
 }
