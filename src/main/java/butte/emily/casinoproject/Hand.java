@@ -46,7 +46,7 @@ public class Hand {
         return cardList.get(position);
     }
 
-    public void sortBySuit() {
+    public ArrayList<Card> sortBySuit() {
         ArrayList<Card> newHand = new ArrayList<Card>();
         while (cardList.size() > 0) {
             int position = 0;  // Position of minimal card.
@@ -62,9 +62,26 @@ public class Hand {
             newHand.add(card);
         }
         cardList = newHand;
+        return newHand;
     }
 
-    public void sortByValue() {
-
+    public ArrayList sortByValue() {
+        ArrayList<Card> newHand = new ArrayList<Card>();
+        while (cardList.size() > 0) {
+            int position = 0;  // Position of minimal card.
+            Card card = cardList.get(0);  // Minimal card.
+            for (int i = 1; i < cardList.size(); i++) {
+                Card c1 = cardList.get(i);
+                if ( c1.getValue() < card.getValue() ||
+                        (c1.getValue() == card.getValue() && c1.getSuit() < card.getSuit()) ) {
+                    position = i;
+                    card = c1;
+                }
+            }
+            cardList.remove(position);
+            newHand.add(card);
+        }
+        cardList = newHand;
+        return newHand;
     }
 }

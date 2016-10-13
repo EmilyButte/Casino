@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /**
  * Created by emilybutte on 10/13/16.
  */
@@ -72,8 +74,15 @@ public class HandTest {
 
     @Test
     public void sortBySuitTest() {
-        String expected = "Jack of Hearts, 8 of Diamonds, 2 of Clubs";
-        String actual = toString().hand.sortBySuit();
+        String expected = "[Jack of Hearts, 8 of Diamonds, 2 of Clubs]";
+        ArrayList actual = hand.sortBySuit();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sortByValueTest() {
+        String expected = "[2 of Clubs, 8 of Diamonds, Jack of Hearts]";
+        ArrayList actual = hand.sortByValue();
         Assert.assertEquals(expected, actual);
     }
 

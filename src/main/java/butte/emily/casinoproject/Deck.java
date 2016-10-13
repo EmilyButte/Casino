@@ -7,11 +7,12 @@ public class Deck {
 
     private Card[] deck;
     private int cardsUsed;
+    private Card[] hand;
 
     //if false, Jokers are included.
-    public Deck() {
-        this(false);
-    }
+    //public Deck() {
+//        this(false);
+//    }
 
     public Deck(boolean includeJokers) {
         if(includeJokers) {
@@ -35,12 +36,7 @@ public class Deck {
         System.out.println(deck);
     }
 
-    public Card[] getDeck() {
-        return deck;
-    }
-
     public void shuffle() {
-        //rearranges the 52 cards in random order
         for(int i = deck.length-1; i > 0; i--) {
             int random = (int) Math.random()*(i+1);
             Card temp = deck[i];
@@ -54,12 +50,19 @@ public class Deck {
         return deck.length - cardsUsed;
     }
 
-    public Card deal() {
-        if(cardsUsed == deck.length) {
-            throw new IllegalStateException("No cards left");
+    public Card[] deal(int desiredNumCards) {
+        Card[] dealtCards = new Card[desiredNumCards];
+        for(int index = 0; index < desiredNumCards; index ++) {
+            dealtCards[index] = cards[topCard];
+            topCard++;
         }
-        cardsUsed++;
-        return deck[cardsUsed-1];
+        return dealtCards;
+//        }
+//        if(cardsUsed == deck.length) {
+//            throw new IllegalStateException("No cards left");
+//        }
+//        //cardsUsed++;
+//        return deck[cardsUsed-1];
     }
 
     public boolean hasJokers() {

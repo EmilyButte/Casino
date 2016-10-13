@@ -9,12 +9,10 @@ public class Card {
     public final static int HEARTS = 1;
     public final static int DIAMONDS = 2;
     public final static int CLUBS = 3;
-    public final static int JOKER = 4;
-
-    public final static int ACE = 1;
-    public final static int JACK = 11;
-    public final static int QUEEN = 12;
-    public final static int KING = 13;
+//    public final static int ACE = 1;
+//    public final static int JACK = 11;
+//    public final static int QUEEN = 12;
+//    public final static int KING = 13;
 
     private final int value;
     private final int suit;
@@ -26,24 +24,17 @@ public class Card {
         return value;
     }
 
+
     public Card(int value, int suit) {
+        if(suit != SPADES && suit != HEARTS && suit != DIAMONDS && suit != CLUBS){ // && suit != JOKER)
+            throw new IllegalArgumentException("Suit not valid.");
+        }
+        if(value < 1|| value >13) {
+            throw new IllegalArgumentException("Card value is not valid.");
+        }
         this.value = value;
         this.suit = suit;
-//        suit = JOKER;
-//        value = 1;
     }
-
-//    public Card(int theValue, int theSuit) {
-//        if(theSuit != SPADES && theSuit != HEARTS && theSuit != DIAMONDS && theSuit != CLUBS && theSuit != JOKER) {
-//            throw new IllegalArgumentException("Suit not valid.");
-//        }
-//        if(theSuit != JOKER && (theValue < 1|| theValue >13)) {
-//            throw new IllegalArgumentException("Card value is not valid.");
-//        }
-//        value = theValue;
-//        suit = theSuit;
-//    }
-
 
     public String getSuitAsString() {
         switch (suit) {
@@ -55,15 +46,15 @@ public class Card {
                 return "Diamonds";
             case CLUBS:
                 return "Clubs";
-            default:
-                return "Joker";
+//            default:
+//                return "Joker";
         }
     }
 
     public String getValueAsString() {
-        if (suit == JOKER) {
-            return "" + value;
-        } else {
+//        if (suit == JOKER) {
+//            return "" + value;
+//        } else {
             switch (value) {
                 case 1:
                     return "Ace";
@@ -93,7 +84,7 @@ public class Card {
                     return "King";
             }
         }
-    }
+
     @Override
     public String toString(){
             return getValueAsString() + " of " + getSuitAsString();

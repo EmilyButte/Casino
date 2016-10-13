@@ -12,7 +12,7 @@ public class Player {
     public Player(String name, double balance) {
         this.name = name;
         this.balance = balance;
-        //this.hand = hand;
+        hand = new Card();
     }
 
     public String getName() {
