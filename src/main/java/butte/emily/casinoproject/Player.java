@@ -22,8 +22,6 @@ public class Player {
         return balance;
     }
 
-
-
     public void setName(String name) {
         this.name = name;
     }
@@ -31,6 +29,5 @@ public class Player {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
 
 }

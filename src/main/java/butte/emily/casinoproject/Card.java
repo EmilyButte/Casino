@@ -28,12 +28,6 @@ public class Card {
 
 
     public Card(int value, int suit) {
-//        if (suit != SPADES && suit != HEARTS && suit != DIAMONDS && suit != CLUBS) {
-//            throw new IllegalArgumentException("Suit not valid.");
-//        }
-//        if (value < 1 || value > 13) {
-//            throw new IllegalArgumentException("Card value is not valid.");
-//        }
         this.value = value;
         this.suit = suit;
     }

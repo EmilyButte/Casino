@@ -11,17 +11,20 @@ public class UserInput {
 
     public int getUserInfoInt(String message) {
         System.out.println(message);
-        return input.nextInt();
+        int answer = input.nextInt();
+        return answer;
     }
 
     public double getUserInfoDouble(String message) {
         System.out.println(message);
-        return input.nextDouble();
+        double answer = input.nextDouble();
+        return answer;
     }
 
     public String getUserInfoString(String message) {
         System.out.println(message);
-        return input.next();
+        String answer = input.next();
+        return answer;
     }
 }
 

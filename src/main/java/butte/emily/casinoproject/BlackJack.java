@@ -5,32 +5,23 @@ package butte.emily.casinoproject;
  */
 public class BlackJack implements Game {
 
-    Deck deck = new Deck();
-    Player player = new Player("Emily", 100);
-    BlackJack blackJack = new BlackJack();
+//    Deck deck = new Deck();
+//    Player player = new Player();
+//    BlackJack blackJack = new BlackJack();
 
     public double balance;
-    public double bet;
-    boolean playerWins;
+//    public double bet;
+//    boolean playerWins;
 
+    public void runGame() {}
 
-
-    public void runGame(){
-
-    }
-
-
-    public void endGame() {
-
-    }
+    public void endGame() {}
 
     public double increasePlayerBalance(double bet){
         return balance;
-
     }
+
     public double decreasePlayerBalance(double bet){
         return balance;
     }
-
-
 }
