@@ -10,11 +10,6 @@ public class Card {
     public final static int DIAMONDS = 2;
     public final static int CLUBS = 3;
 
-    public final static int ACE = 1;
-    public final static int JACK = 11;
-    public final static int QUEEN = 12;
-    public final static int KING = 13;
-
     private final int value;
     private final int suit;
 

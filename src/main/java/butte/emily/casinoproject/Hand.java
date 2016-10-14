@@ -7,81 +7,77 @@ import java.util.ArrayList;
  */
 public class Hand {
 
-    ArrayList<Card> cardList = new ArrayList<>();
-
-    //public Hand() {
-//        cardList = new ArrayList<Card>();
-//    }
+    ArrayList<Card> currentHand = new ArrayList<>();
 
     public void clear() {
-        cardList.clear();
+        currentHand.clear();
     }
 
     public void addCard(Card card) {
-        if(card ==null) {
-            throw new NullPointerException("Card can't be added to cardList.");
+        if(card == null) {
+            throw new NullPointerException("Card can't be added to currentHand.");
         }
-        cardList.add(card);
+        currentHand.add(card);
     }
 
     public void removeCard(Card card) {
-        cardList.remove(card);
+        currentHand.remove(card);
     }
 
     public void removeCard(int position) {
-        if(position < 0 || position >= cardList.size()) {
-            throw new IllegalArgumentException("Position does not exist in cardList:" + position);
+        if(position < 0 || position >= currentHand.size()) {
+            throw new IllegalArgumentException("Position does not exist in currentHand:" + position);
         }
-        cardList.remove(position);
+        currentHand.remove(position);
     }
 
     public int getCardCount() {
-        return cardList.size();
+        return currentHand.size();
     }
 
     public Card getCard(int position) {
-        if(position < 0 || position >= cardList.size()) {
+        if(position < 0 || position >= currentHand.size()) {
             throw new IllegalArgumentException("Position does not exist in hand:" + position);
         }
-        return cardList.get(position);
+        return currentHand.get(position);
     }
 
     public ArrayList<Card> sortBySuit() {
         ArrayList<Card> newHand = new ArrayList<Card>();
-        while (cardList.size() > 0) {
+        while (currentHand.size() > 0) {
             int position = 0;  // Position of minimal card.
-            Card card = cardList.get(0);  // Minimal card.
-            for (int i = 1; i < cardList.size(); i++) {
-                Card c1 = cardList.get(i);
+            Card card = currentHand.get(0);  // Minimal card.
+            for (int i = 1; i < currentHand.size(); i++) {
+                Card c1 = currentHand.get(i);
                 if (c1.getSuit() < card.getSuit() ||  (c1.getSuit() == card.getSuit() && c1.getValue() < card.getValue()) ) {
                     position = i;
                     card = c1;
                 }
             }
-            cardList.remove(position);
+            currentHand.remove(position);
             newHand.add(card);
         }
-        cardList = newHand;
+        currentHand = newHand;
         return newHand;
     }
 
     public ArrayList sortByValue() {
         ArrayList<Card> newHand = new ArrayList<Card>();
-        while (cardList.size() > 0) {
+        while (currentHand.size() > 0) {
             int position = 0;  // Position of minimal card.
-            Card card = cardList.get(0);  // Minimal card.
-            for (int i = 1; i < cardList.size(); i++) {
-                Card c1 = cardList.get(i);
+            Card card = currentHand.get(0);  // Minimal card.
+            for (int i = 1; i < currentHand.size(); i++) {
+                Card c1 = currentHand.get(i);
                 if ( c1.getValue() < card.getValue() ||
                         (c1.getValue() == card.getValue() && c1.getSuit() < card.getSuit()) ) {
                     position = i;
                     card = c1;
                 }
             }
-            cardList.remove(position);
+            currentHand.remove(position);
             newHand.add(card);
         }
-        cardList = newHand;
+        currentHand = newHand;
         return newHand;
     }
 }

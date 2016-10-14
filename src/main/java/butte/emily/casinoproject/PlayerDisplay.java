@@ -5,16 +5,7 @@ package butte.emily.casinoproject;
  */
 public class PlayerDisplay {
 
-    private boolean playing = true;
-    private int menuOption;
-    public final static int BLACKJACK = 1;
-    public final static int CRAZY_EIGHTS = 2;
-    public final static int SLOT_MACHINE = 3;
-    public final static int EXIT = 4;
-
-
     UserInput user = new UserInput();
-    Deck deck = new Deck();
     BlackJack blackJack = new BlackJack();
     CrazyEights crazyEights = new CrazyEights();
     SlotMachine slotMachine = new SlotMachine();
@@ -61,14 +52,6 @@ public class PlayerDisplay {
     }
 }
 
-//    public void dealerHand() {
-//        Card dealerHand;
-//        dealerHand = deck.deal();
-//    }
-//
-//    public void playerHand() {
-//        Card playerHand;
-//        playerHand = deck.deal();
-//    }
+
 
 

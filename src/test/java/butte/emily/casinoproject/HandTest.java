@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 /**
  * Created by emilybutte on 10/13/16.
  */
@@ -31,14 +29,14 @@ public class HandTest {
     public void clearTest() {
         hand.clear();
         int expected = 0;
-        int actual = hand.cardList.size();
+        int actual = hand.currentHand.size();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void addCardTest() {
         int expected = 3;
-        int actual = hand.cardList.size();
+        int actual = hand.currentHand.size();
         Assert.assertEquals(expected, actual);
     }
 
@@ -46,7 +44,7 @@ public class HandTest {
     public void removeCardTest() {
         hand.removeCard(card2);
         int expected = 2;
-        int actual = hand.cardList.size();
+        int actual = hand.currentHand.size();
         Assert.assertEquals(expected, actual);
     }
 
@@ -54,7 +52,7 @@ public class HandTest {
     public void removeCardOverloadTest() {
         hand.removeCard(0);
         String expected = "[Jack of Hearts, 8 of Diamonds]";
-        String actual = hand.cardList.toString();
+        String actual = hand.currentHand.toString();
         Assert.assertEquals(expected, actual);
     }
 
@@ -85,8 +83,6 @@ public class HandTest {
         String actual = hand.sortByValue().toString();
         Assert.assertEquals(expected, actual);
     }
-
-
 
 }
 

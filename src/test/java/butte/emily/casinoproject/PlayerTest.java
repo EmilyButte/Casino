@@ -34,11 +34,4 @@ public class PlayerTest {
         int actual = (int) player2.getBalance();
         Assert.assertEquals(expected, actual);
     }
-
-//    @Test
-//    public void getHand() {
-//        String expected = "";
-//        Card actual = player1.getHand();
-//        Assert.assertEquals(expected, actual);
-//    }
 }

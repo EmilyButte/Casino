@@ -32,7 +32,7 @@ public class Deck {
         Card card = theDeck.remove(0);
         cardsUsed++;
         if(theDeck.size() == 0) {
-            System.out.println("No cards remain in the deck.");
+            System.out.println("No cards remain in the currentHand.");
         }
         return card;
     }
