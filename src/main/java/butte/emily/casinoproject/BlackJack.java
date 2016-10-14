@@ -1,7 +1,5 @@
 package butte.emily.casinoproject;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by emilybutte on 10/13/16.
@@ -11,15 +9,21 @@ public class BlackJack implements Game {
     public double bet;
     public double balance;
     public String name;
+    public String userAction;
 
     UserInput user = new UserInput();
     Casino casino = new Casino();
     Player player = new Player(name, balance);
+    Deck deck = new Deck();
+    BlackJackHand dealerHand = new BlackJackHand();
+    BlackJackHand userHand = new BlackJackHand();
 
     public void runGame() {
         casino.addPlayer();
         boolean playerWins = true;
         while (playerWins) {
+            dealerHand.clear();
+            userHand.clear();
             do {
                 bet = user.getUserInfoDouble("How much do you want to bet?");
                 if (bet < 0 || bet > casino.balance)
@@ -40,12 +44,7 @@ public class BlackJack implements Game {
         System.out.println("You leave with $" + casino.balance + '.');
     }
 
-    private static boolean playBlackJack() {
-
-        Deck deck = new Deck();
-        BlackJackHand dealerHand = new BlackJackHand();
-        BlackJackHand userHand = new BlackJackHand();
-        UserInput user = new UserInput();
+    public boolean playBlackJack() {
 
         deck.shuffle();
 
@@ -72,6 +71,7 @@ public class BlackJack implements Game {
             System.out.println("You have Blackjack.  You win.");
             return true;
         }
+
         while (true) {
             System.out.println("Your cards are:");
             for (int i = 0; i < userHand.getCardCount(); i++)
@@ -80,31 +80,49 @@ public class BlackJack implements Game {
 
             System.out.println("Dealer is showing the " + dealerHand.getCard(0));
 
-            String userAction = user.getUserInfoString("Hit or Stand?");
+            userAction = user.getUserInfoString("Hit or Stay?");
+            userAction = userAction.toUpperCase();
 
-            do {
-                userAction = userAction.toUpperCase();
-                if (userAction != "HIT" && userAction != "STAND")
-                    System.out.println("Please respond HIT or STAND");
-            } while (userAction != "HIT" && userAction != "STAND");
-            if (userAction == "STAND") {
-                break;
+            if (userAction.equals("HIT")) {
+                hit();
+            } else if (userAction.equals("STAY")) {
+                stay();
             } else {
-                Card newCard = deck.deal();
-                userHand.addCard(newCard);
-                System.out.println("User hits.");
-                System.out.println("Your card is the " + newCard);
-                System.out.println("Your total is now " + userHand.getBlackJackValue());
-                if (userHand.getBlackJackValue() > 21) {
-                    System.out.println("You busted by going over 21.  You lose.");
-                    System.out.println("Dealer's other card was the "
-                            + dealerHand.getCard(1));
-                    return false;
-                }
+                System.out.println("Please respond hit or stay");
+            }
+            System.out.println("Dealer's total is " + dealerHand.getBlackJackValue());
+            if (dealerHand.getBlackJackValue() == userHand.getBlackJackValue()) {
+                System.out.println("Dealer wins on a tie.  You lose.");
+                return false;
+            } else if (dealerHand.getBlackJackValue() > userHand.getBlackJackValue()) {
+                System.out.println("Dealer wins, " + dealerHand.getBlackJackValue()
+                        + " points to " + userHand.getBlackJackValue() + ".");
+                return false;
+            } else if (userHand.getBlackJackValue() > dealerHand.getBlackJackValue() && userHand.getBlackJackValue() <=21){
+                System.out.println("You win, " + userHand.getBlackJackValue()
+                        + " points to " + dealerHand.getBlackJackValue() + ".");
+                return true;
             }
         }
-        System.out.println("User stands.");
-        System.out.println("Dealer's cards are");
+    }
+
+    public boolean hit() {
+
+        System.out.println("User hits!");
+        Card newCard = deck.deal();
+        userHand.addCard(newCard);
+        System.out.println("Your card is the " + newCard);
+        System.out.println("Your total is now " + userHand.getBlackJackValue());
+        if (userHand.getBlackJackValue() > 21) {
+            System.out.println("You busted by going over 21.  You lose.");
+            System.out.println("Dealer's other card was the " + dealerHand.getCard(1));
+        }
+            return false;
+    }
+
+    public boolean stay() {
+        System.out.println("User stays.");
+        System.out.println("Dealer's cards are: ");
         System.out.println("    " + dealerHand.getCard(0));
         System.out.println("    " + dealerHand.getCard(1));
         while (dealerHand.getBlackJackValue() <= 16) {
@@ -113,34 +131,8 @@ public class BlackJack implements Game {
             dealerHand.addCard(newCard);
             if (dealerHand.getBlackJackValue() > 21) {
                 System.out.println("Dealer busted by going over 21. You win.");
-                return true;
             }
         }
-        System.out.println("Dealer's total is " + dealerHand.getBlackJackValue());
-
-        if (dealerHand.getBlackJackValue() == userHand.getBlackJackValue()) {
-            System.out.println("Dealer wins on a tie.  You lose.");
-            return false;
-        } else if (dealerHand.getBlackJackValue() > userHand.getBlackJackValue()) {
-            System.out.println("Dealer wins, " + dealerHand.getBlackJackValue()
-                    + " points to " + userHand.getBlackJackValue() + ".");
-            return false;
-        } else {
-            System.out.println("You win, " + userHand.getBlackJackValue()
-                    + " points to " + dealerHand.getBlackJackValue() + ".");
-            return true;
-        }
+        return true;
     }
 }
-
-//    public void endGame() {}
-//
-//    public double increasePlayerBalance(double bet){
-//        return balance;
-//    }
-//
-//    public double decreasePlayerBalance(double bet){
-//        return balance;
-//    }
-
-
