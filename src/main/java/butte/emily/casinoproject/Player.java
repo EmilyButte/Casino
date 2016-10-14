@@ -5,8 +5,8 @@ package butte.emily.casinoproject;
  */
 public class Player {
 
-    private String name;
-    private double balance;
+    public String name;
+    public double balance;
 
 
     public Player(String name, double balance) {

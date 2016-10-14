@@ -12,7 +12,9 @@ public class PlayerDisplay {
 
 
     public void welcome() {
-        System.out.println("  ______   __       __                  __  __    __         ______          ______  __                    __           \n" +
+        System.out.println("                                 Welcome to\n"+
+                "\n"+
+                "  ______   __       __                  __  __    __         ______          ______  __                    __           \n" +
                 " /      \\ |  \\      |  \\                |  \\| \\  |  \\       /      \\       /      \\  |  \\                  |   \\          \n" +
                 "|  $$$$$$\\| $$____   \\$$  ______         $$ | $$\\ | $$      |  $$$$$$\\     |  $$$$$$\\| $$____      ______   \\$$  ______  \n" +
                 "| $$   \\$$| $$    \\ |  \\ /      \\        \\$ | $$$\\| $$      | $$__| $$     | $$   \\$$| $$    \\   |      \\   |  \\ /      \\ \n" +
@@ -29,6 +31,7 @@ public class PlayerDisplay {
 
     public void runCasino(Player player) {
         int game = user.getUserInfoInt(
+                "\n"+ "\n"+ "\n"+
                 "Choose a game:\n" +
                         "1 - BLACKJACK\n" +
                         "2 - CRAZY_EIGHTS\n" +

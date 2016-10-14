@@ -5,10 +5,10 @@ package butte.emily.casinoproject;
  */
 public class Card {
 
-    public final static int SPADES = 0;
-    public final static int HEARTS = 1;
-    public final static int DIAMONDS = 2;
-    public final static int CLUBS = 3;
+//    public final static int SPADES = 0;
+//    public final static int HEARTS = 1;
+//    public final static int DIAMONDS = 2;
+//    public final static int CLUBS = 3;
 
     private final int value;
     private final int suit;
@@ -21,21 +21,20 @@ public class Card {
         return value;
     }
 
-
-    public Card(int value, int suit) {
+    public Card(int suit, int value) {
         this.value = value;
         this.suit = suit;
     }
 
     public String getSuitAsString() {
         switch (suit) {
-            case SPADES:
+            case 0:
                 return "Spades";
-            case HEARTS:
+            case 1:
                 return "Hearts";
-            case DIAMONDS:
+            case 2:
                 return "Diamonds";
-            case CLUBS:
+            case 3:
                 return "Clubs";
             default:
                 return "error";

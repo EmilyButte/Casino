@@ -8,19 +8,20 @@ import java.util.*;
 public class Deck {
 
     private ArrayList<Card> theDeck;
+    int cardsUsed = 0;
 
     public Deck() {
         theDeck = new ArrayList<Card>();
-        for (int suit = 0; suit <= 3; suit++) {
+        for (int suit = 1; suit <= 3; suit++) {
             for (int value = 1; value <= 13; value++) {
                 theDeck.add(new Card(suit, value));
             }
         }
     }
 
-    public ArrayList<Card> shuffle(List<?> theDeck) {
-        Collections.shuffle(Arrays.asList(theDeck));
-        return null;
+    public ArrayList<Card> shuffle() {
+        Collections.shuffle(theDeck);
+        return theDeck;
     }
 
     public int cardsLeft(int cardsUsed){
@@ -28,7 +29,6 @@ public class Deck {
     }
 
     public Card deal() {
-        int cardsUsed = 0;
         Card card = theDeck.remove(0);
         cardsUsed++;
         if(theDeck.size() == 0) {
