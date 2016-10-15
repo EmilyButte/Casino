@@ -28,7 +28,6 @@ public class DeckTest {
         Iterator<Card> preShuffleDeck = theDeck.iterator();
         ArrayList<Card> shuffledDeck = deck.shuffle();
         Assert.assertFalse(preShuffleDeck.equals(shuffledDeck));
-        //Assert.assertTrue(!theDeck.size() == shuffledDeck.size()));
     }
 
     @Test

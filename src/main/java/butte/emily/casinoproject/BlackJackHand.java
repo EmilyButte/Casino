@@ -28,7 +28,7 @@ public class BlackJackHand extends Hand {
             handValue = handValue + cardVal;
         }
 
-        if (ace == true && handValue + 10 <= 21)
+        if (ace && handValue + 10 <= 21)
             handValue = handValue + 10;
 
         return handValue;

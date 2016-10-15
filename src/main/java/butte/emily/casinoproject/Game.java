@@ -5,7 +5,5 @@ package butte.emily.casinoproject;
  */
 public interface Game {
      void runGame();
-//     void endGame();
-//     double increasePlayerBalance(double bet);
-//     double decreasePlayerBalance(double bet);
+     void endGame();
 }

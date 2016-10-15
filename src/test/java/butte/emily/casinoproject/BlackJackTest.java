@@ -17,10 +17,38 @@ public class BlackJackTest {
     }
 
 //    @Test
-//    public void playBlackJackTest1() {
-//        String expected = "Dealer has Blackjack.  Dealer wins.";
-//        String actual = blackJack.playBlackJack();
+//    public void endGameTest() {
+//        String expected = "Game Over";
+//         actual = blackJack.endGame();
 //        Assert.assertEquals(expected, actual);
 //    }
 
+    @Test
+    public void doYouWantToPlayAgainTest() {
+        String playAgain = blackJack.doYouWantToPlayAgain();
+        String expected = "YES";
+        String actual = playAgain;
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToMakeSurePlayerIsDealtAHand() {
+        int actual = blackJack.playerHand.getBlackJackValue();
+        Assert.assertTrue(actual > 0 && actual < 21);
+    }
+
+
+    @Test
+    public void testToMakeSureDealerIsDealtAHand() {
+        blackJack.dealBlackJack();
+        int actual = blackJack.dealerHand.getBlackJackValue();
+        Assert.assertTrue(actual > 0 && actual < 21);
+    }
+
+    @Test
+    public void testPlayerHasBlackJack(){
+        String expected = "You win.";
+        String actual = ;
+        Assert.assertEquals(expected, actual);
+    }
 }
