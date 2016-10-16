@@ -7,7 +7,11 @@ import java.util.Scanner;
  */
 public class UserInput {
 
+    public String message;
     Scanner input = new Scanner(System.in);
+    //StringBuilder stringBuilder = new StringBuilder(message);
+    //make a message class that holds all the things you want to ask the user
+    //this will remove the Sys out from the blackjack game
 
     public int getUserInfoInt(String message) {
         System.out.println(message);
@@ -27,11 +31,3 @@ public class UserInput {
         return answer;
     }
 }
-
-
-//try {
-//            casino.startCasino();
-//        } catch (Exception e) {
-//            System.out.println("Enter a valid option");
-//            casino.startCasino();
-//        }
